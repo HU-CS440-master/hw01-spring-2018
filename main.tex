@@ -28,7 +28,7 @@
 \begin{questions}
 
   \titledquestion{Mapping and Linear Interpolation}[5]
-  \begin{tabularx}{\textwidth}{cX}
+  \begin{tabularx}{\linewidth}{cX}
     \raisebox{-\totalheight}{
       \begin{tikzpicture}
         \draw (0,0) -- (4,4);
@@ -56,13 +56,15 @@
     \]
     $X$ is thus said to be an \href{https://en.wikipedia.org/wiki/Affine_combination}{\it affine combination} of P and Q.
     
-    Imagine a mapping from the range PQ to a new range, AB. We are interested in findining the coordinates of $X'$ which is the mapping of $X$ to the new range. Write a function {\tt map\_point(px, py, qx, qy, ax, ay, bx, by, x, y, \&\_x, \&\_y)} that takes as argument the coordinates of P, Q, A, B, and X and sets the last 2 arguments to the coorindates of $X'$.
+    Imagine a mapping from the range PQ to a new range, AB. We are interested in finding the coordinates of $X'$ which is the mapping of $X$ to the new range. Write a function {\tt map\_point(px, py, qx, qy, ax, ay, bx, by, x, y, \&\_x, \&\_y)} that takes as argument the coordinates of P, Q, A, B, and X and sets the last 2 arguments to the coorindates of $X'$.
   \end{tabularx}
+  \underline{File:} {\tt interpolate.cpp}
   
-  \titledquestion{Interaction: Polygons Galore!}[20]
+  \titledquestion{Interaction: Polygons Galore}[20]
+  \label{q:galore}
   
-  \begin{tabularx}{\textwidth}{lX}
-    \raisebox{-.85\totalheight}{\includegraphics[width=.4\textwidth]{galore}}
+  \begin{tabularx}{\linewidth}{lX}
+    \raisebox{-.9\totalheight}{\includegraphics[width=.35\textwidth]{galore}}
     &
     Write a program that interactively draws triangles and quadrilaterals. The program draws a point at the location of each mouse click. It supports two {\it modes} -- triangle mode (default) and quad mode. When in triangle mode, every 3 consecutive points are drawn as a triangle. When in quad mode, every 4 consecutive points are drawn as a quad.
 
@@ -71,13 +73,23 @@
     -- Pressing r or R clears the screen and resets to default.\newline
     -- Pressing t or T toggles between the drawing modes.
   \end{tabularx}
+  \underline{File:} {\tt galore.cpp}\\
+  \underline{Useful functions:} {\tt \href{https://www.opengl.org/resources/libraries/glut/spec3/node49.html#SECTION00084000000000000000}{glutKeyboardFunc}, \hyperref[q:galore]{map\_point}}
 
-  \titledquestion{Vertex Arrays}[10]
+  \titledquestion{Vertex Arrays: All At Once}[10]
 
-  \titledquestion{Idle Time: Catch me if you can}[20]
-  Draw a 2D object with non-zero area anywhere on the screen. After a random interval of time, it automatically changes position. You have to try to click on the object. If you succeed, you gain a point, otherwise you lose a point. Once you reach -3 points, the game ends.
+  In Problem \ref{q:galore}, you specified the vertices one by one. Using \href{http://www.informit.com/articles/article.aspx?p=1377833&seqNum=6}{\it vertex arrays}, it is possible to specify the points all at once. Copy the file from the previous problem and modify only its display callback function (and any functions it may be calling) to use vertex arrays.
+  
+  \noindent\underline{File:} {\tt atonce.cpp}\\
+  \underline{Useful functions:} {\tt \href{https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glVertexPointer.xml}{glVertexPointer}}\\
+  \underline{Useful links:} {\tt \href{http://www.songho.ca/opengl/gl_vertexarray.html}{Vertex Array}}\\
+  
+  \titledquestion{Timing: Catch Me If You Can}[20]
+  We want to test our reflexes by seeing how quickly we can click on an object on screen. Write a program that displays a 2D object with non-zero area anywhere in the window. The catch is that it is going to disappear and reappear at some other location after a random time interval. You have to click on it before it disappears. If you succeed, you get 1 point. If the object has moved away by the time you clicked, you get -1. The game ends when your score becomes -3.
 
-  Use: idle callback
+  \noindent\underline{File:} {catch.cpp}\\
+  \underline{Useful functions:} {\tt \href{https://www.opengl.org/resources/libraries/glut/spec3/node64.html#SECTION000819000000000000000}{glutTimerFunc}}
+
 
   \titledquestion{Approximating Smooth Surfaces}[20]
   Approximate a circle using increasing number of points.
