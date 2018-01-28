@@ -14,6 +14,7 @@
 *.app
 
 # LaTeX stuff
+*.aux
 *.out
 *.log
 *.pdf

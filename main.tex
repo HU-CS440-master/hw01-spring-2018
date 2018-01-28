@@ -28,6 +28,8 @@
 \begin{questions}
 
   \titledquestion{Mapping and Linear Interpolation}[5]
+  \label{q:interpolate}
+  
   \begin{tabularx}{\linewidth}{cX}
     \raisebox{-\totalheight}{
       \begin{tikzpicture}
@@ -91,7 +93,8 @@
   \underline{Useful functions:} {\tt \href{https://www.opengl.org/resources/libraries/glut/spec3/node64.html#SECTION000819000000000000000}{glutTimerFunc}}
 
   \titledquestion{Color Interpolation: In memory of Tim}[5]
-
+  \label{q:maxwell}
+  
   \begin{tabularx}{\linewidth}{cX}
     \raisebox{-\totalheight}{\includegraphics[width=.35\linewidth]{maxwell}}
     &
@@ -106,10 +109,25 @@
   \underline{File:} {maxwell.cpp}\\
   \underline{Fun Fact:} {Maxwell had a short stint at \href{https://www.abdn.ac.uk/museums/collections/james-clerk-maxwell-professor-and-physicist-457.php}{University of Aberdeen}.}\\
   
-  \titledquestion{Color Interpolation}[10]
-  Draw the color bar.
+  \titledquestion{Color Interpolation}[20]
 
+  \begin{center}
+    \includegraphics[width=\linewidth]{barbw}\\
+    \vspace{-75pt}\includegraphics[width=\linewidth]{barrgb}
+  \end{center}
 
+  \vspace{-25pt}In Problem \ref{q:maxwell}, we used the API's native color interpolation. For this problem, we will draw color bars for which we will perform the interpolation ourselves. We can use the technique from Problem \ref{q:interpolate} for the purpose. In later assignments we will see how to interpolate between more than 2 values as was done by the API in the above problem.
+  \begin{parts}
+    \part Draw a color bar that is white at one end and black at the other.
+    \part Draw a color bar that is red at one end, green in the middle, and blue at the other end.
+  \end{parts}
+  We should be able to switch between the two color bars by commenting
+  and uncommenting at most a couple of lines in the display callback
+  function.
+  
+  \noindent\underline{File:} {colorbar.cpp}\\
+  \underline{Fun Fact:} {Maxwell had a short stint at \href{https://www.abdn.ac.uk/museums/collections/james-clerk-maxwell-professor-and-physicist-457.php}{University of Aberdeen}.}\\
+  
   \titledquestion{Approximating Smooth Surfaces}[20]
   Approximate a circle using increasing number of points.
 
