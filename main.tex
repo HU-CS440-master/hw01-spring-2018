@@ -19,7 +19,7 @@
 % \printanswers
 
 \title{Habib University\\CS 440 Computer Graphics\\Spring 2018}
-\author{Homework 1}
+\author{Homework 1, \numpoints\ points}
 \date{Due: TBD}
 
 \begin{document}
@@ -155,17 +155,32 @@
 
     Generate the above figure by repetitively refining a coarse initial approximation.
   \end{tabularx}
-  
   \underline{File}: {circle.cpp}
   
   \titledquestion{Triangle in a Triangle in a Triangle ...}[20]
-  Sierpinski gasket.
 
-  \titledquestion{Deja Vu}[35]
-  Mandelbrot set.
+  \begin{center}
+  \begin{tabularx}{\linewidth}{cX}
+    \includegraphics[width=.4\linewidth]{sierpinski}
+    &
+      \begin{tikzpicture}
+        \draw[red,thick] (0,0) -- (6,0) -- (3,5) -- cycle;
+        \draw[red,dashed] (3,0) -- (4.5,2.5) -- (1.5,2.5) -- cycle;
+        \draw[red,fill] (1.5, 1.25) circle (1.5pt);
+        \draw[red,fill] (4.5, 1.25) circle (1.5pt);
+        \draw[red,fill] (3, 3.75) circle (1.5pt);
+        
+        \node at (3,-1) {};
+      \end{tikzpicture}
+  \end{tabularx}
+\end{center}
 
+The \href{https://en.wikipedia.org/wiki/Sierpinski_triangle}{Sierpinski triangle} is a \href{https://en.wikipedia.org/wiki/Self-similarity}{self-similar} geometric shape with many interesting properties, not the least of which is the variety of ways in which it can be generated. The left figure above shows a Sierpinski tringle at recursion level 5.
 
-  
+For this problem we shall define a Sierpinski triangle as shown in the right figure above. Starting with a triangle, connect all its edge midpoints. This yields 4 new triangles. Repeat the process for all the new triangles shown with a dot in them, except the one in the middle (witout a dot). Note that the dots in the figure are for demonstration purposes only. They are not part of the Sierpinski triangle.
+
+Write a program to generate the Sierpinski triangle at a desired recursion level which is set in {\tt main}.
+  \underline{File}: {sierpinski.cpp}
   
 \end{questions}
 
